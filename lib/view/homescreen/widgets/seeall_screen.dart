@@ -8,6 +8,7 @@ class AllItemScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String titile;
     List category = [
       "All",
       "Shirt",
@@ -49,47 +50,47 @@ class AllItemScreen extends StatelessWidget {
             Expanded(
                 child: GridView.builder(
               itemCount: Dbdata.menscollections.length,
-              itemBuilder: (context, index) => itemscard(index),
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 280,
+                  width: 161,
+                  // color: Colors.grey,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 224,
+                          width: 161,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      Dbdata.menscollections[index]))),
+                        ),
+                        // SizedBox(
+                        //   height: 10,
+                        // ),
+                        Text(
+                          "titile",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
+                        Text(
+                          "Price",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.6,
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 0),
             ))
-          ],
-        ),
-      ),
-    );
-  }
-
-  Container itemscard(index) {
-    return Container(
-      height: 280,
-      width: 161,
-      // color: Colors.grey,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 224,
-              width: 161,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(Dbdata.menscollections[index]))),
-            ),
-            // SizedBox(
-            //   height: 10,
-            // ),
-            Text(
-              "Regular Tshirt",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-            ),
-            Text(
-              "Price",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
           ],
         ),
       ),

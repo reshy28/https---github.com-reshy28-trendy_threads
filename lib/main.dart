@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trendy_threads/firebase_options.dart';
 import 'package:trendy_threads/provider/auth_provider.dart';
+import 'package:trendy_threads/view/detailed_screen.dart/detailed_screen.dart';
 import 'package:trendy_threads/view/splashscreen/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Splashscreen(),
+        home: DetailedScreen(),
       ),
     );
   }
